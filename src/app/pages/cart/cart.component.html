@@ -15,15 +15,15 @@
   
       <ng-container *ngFor="let row of carrito.cart().items; let i =index">
         <div class="row">
-          <div class="col-md-1">
+          <div class="col-1">
             <img [src]="row.image" style="width:100%" />
           </div>
-          <div class="col-md-6">
-            <h2 class="title">{{row.title}}</h2>
+          <div class="col-6">
+            <h3 class="title">{{row.title}}</h3>
             <p>{{row.description}}</p>
           </div>
 
-          <div class="col-md-1">
+          <div class="col-1">
             {{row.quantity}}
           </div>
           <!-- <div class="col-md-1 d-flex align-items-center justify-content-between">
@@ -31,7 +31,7 @@
             <div class="count">2</div>
             <div class="btn">-</div>
           </div> -->
-          <div class="col-md-2 end">
+          <div class="col-2 end">
             <div class="amount">{{row.price | currency}}</div>
             <div class="save"><u>Save for later</u></div>
             <div (click)="remove(row.id)" class="remove"><u>Remove</u></div>
