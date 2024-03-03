@@ -6,14 +6,12 @@ import { IProduct, ShoppingCart } from '../interfaces/iproduct';
   providedIn: 'root',
 })
 export class CartService {
-   subTotal:number=0;
    //Total: WritableSignal<number> = signal(0);
 
   cart:WritableSignal<ShoppingCart> = signal<ShoppingCart>({
     items: [],
     totalAmount: 0,
   });
-  TotalAmount:Signal<number> = computed(() => this.cart().items.reduce((total, item) => total + item.price * item.quantity!, 0) );
    
    calculateTotalAmount(items: IProduct[]): number {
     return items.reduce((total, item) => total + item.price * item.quantity!, 0);
@@ -34,19 +32,11 @@ export class CartService {
         currentCart.items.push(item);
       }
       
-      this.subTotal = item.price * item.quantity!;
       currentCart.totalAmount=this.calculateTotalAmount(currentCart.items);  
       return currentCart;
     }); 
 
-
-    /* item.quantity=1;
-    this.cart.update((currentCart) => {
-      currentCart.items.push(item);
-      currentCart.totalAmount=this.TotalAmount();
-      currentCart
-      return currentCart
-    }) */
+    
   }
 
    removeItem(productId:number) {
@@ -63,4 +53,6 @@ export class CartService {
       return currentCart;
     });
   } 
+
+
 }
