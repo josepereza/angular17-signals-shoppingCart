@@ -12,6 +12,6 @@ import { CurrencyPipe, JsonPipe, NgFor, NgIf } from '@angular/common';
 export class CartComponent {
 carrito=inject(CartService)
 remove(i:number){
-
+this.carrito.removeItem(i)
 }
 }

@@ -1,11 +1,11 @@
-<p>cart works!</p>
+<!-- <p>cart works!</p>
 {{carrito.cart().items | json}}
 <h2>Total</h2>
 {{carrito.subTotal}}
 {{carrito.calculateTotalAmount(carrito.cart().items)}}
 <h2>********</h2>
 {{carrito.cart().totalAmount}}
-
+ -->
 <div class="container mt-5">
     <div *ngIf="carrito.cart().items.length" class="CartContainer mx-auto">
       <div class="Header">
@@ -34,7 +34,7 @@
           <div class="col-md-2 end">
             <div class="amount">{{row.price | currency}}</div>
             <div class="save"><u>Save for later</u></div>
-            <div (click)="remove(i)" class="remove"><u>Remove</u></div>
+            <div (click)="remove(row.id)" class="remove"><u>Remove</u></div>
           </div>
         </div>
       </ng-container>

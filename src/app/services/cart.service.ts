@@ -49,18 +49,18 @@ export class CartService {
     }) */
   }
 
-  /* removeItem(productId: string) {
+   removeItem(productId:number) {
     this.cart.update((currentCart) => {
-      const item = currentCart.items.find((i) => i.productId === productId);
+      const item = currentCart.items.find((i) => i.id === productId);
 
       if (item) {
-        currentCart.totalAmount -= item.price * item.quantity;
+        currentCart.totalAmount -= item.price * item.quantity!;
         currentCart.items = currentCart.items.filter(
-          (i) => i.productId !== productId
+          (i) => i.id !== productId
         );
       }
 
       return currentCart;
     });
-  } */
+  } 
 }
